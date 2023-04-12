@@ -6,4 +6,139 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <LinearLayout
+        android:id="@+id/devices"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="@color/light_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="55dp"
+            android:src="@drawable/ic_back_arrow"/>
+
+        <TextView
+            android:gravity="center"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:text="@string/living_room"
+            android:textColor="@color/black"
+            android:textSize="20sp"/>
+
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_forward_arrow" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/homeButtons"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/fanButton"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/button"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:textAllCaps="false">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fan"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/ic_fan" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/low"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <android.widget.Button
+                android:id="@+id/directionButton"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/button"
+                android:textAllCaps="false" />
+
+            <android.widget.Button
+                android:id="@+id/modeButton"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/button"
+                android:textAllCaps="false" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:orientation="horizontal">
+
+            <android.widget.Button
+                android:id="@+id/ecoButton"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/button"
+                android:textAllCaps="false" />
+
+            <android.widget.Button
+                android:id="@+id/autoButton"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/button"
+                android:textAllCaps="false" />
+
+            <android.widget.Button
+                android:id="@+id/sleepButton"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_margin="15dp"
+                android:background="@drawable/button"
+                android:textAllCaps="false" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

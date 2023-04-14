@@ -30,4 +30,6 @@
     <string name="eco">Eco</string>
     <string name="auto">Auto</string>
     <string name="sleep">Sleep</string>
+    <string name="status">Status</string>
+    <string name="off">Off</string>
 </resources>

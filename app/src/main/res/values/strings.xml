@@ -16,9 +16,15 @@
     <string name="low">Low</string>
     <string name="mid">Mid</string>
     <string name="high">High</string>
+    <!-- devices -->
     <string name="living_room">Living Room</string>
+
     <string name="direction">Direction</string>
+    <!-- direction options -->
     <string name="down">Down</string>
+    <string name="middle">Middle</string>
+    <string name="up">Up</string>
+
     <string name="mode">Mode</string>
     <string name="cold">Cold</string>
     <string name="eco">Eco</string>

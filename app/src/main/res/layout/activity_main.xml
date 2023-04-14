@@ -7,6 +7,21 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/devices"
+        tools:ignore="MissingConstraints">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/devices"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -79,6 +94,7 @@
                     android:src="@drawable/ic_fan" />
 
                 <TextView
+                    android:id="@+id/fanOptions"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/low"
@@ -87,21 +103,67 @@
 
             </LinearLayout>
 
-            <android.widget.Button
+            <LinearLayout
                 android:id="@+id/directionButton"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:layout_margin="15dp"
                 android:background="@drawable/button"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:orientation="vertical"
+                android:gravity="center">
 
-            <android.widget.Button
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/direction"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"/>
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/ic_air"/>
+
+                <TextView
+                    android:id="@+id/directionOptions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/down"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/modeButton"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:layout_margin="15dp"
                 android:background="@drawable/button"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/mode"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"/>
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="40dp"/>
+
+                <TextView
+                    android:id="@+id/modeOptions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cold"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -111,29 +173,77 @@
             android:layout_marginStart="30dp"
             android:orientation="horizontal">
 
-            <android.widget.Button
+            <LinearLayout
                 android:id="@+id/ecoButton"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:layout_margin="15dp"
                 android:background="@drawable/button"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:orientation="vertical"
+                android:gravity="center">
 
-            <android.widget.Button
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_eco"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/eco"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/autoButton"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:layout_margin="15dp"
                 android:background="@drawable/button"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:orientation="vertical"
+                android:gravity="center">
 
-            <android.widget.Button
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_auto"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/auto"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/sleepButton"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:layout_margin="15dp"
                 android:background="@drawable/button"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_sleep"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sleep"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
 
 
         </LinearLayout>

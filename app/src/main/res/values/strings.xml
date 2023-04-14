@@ -17,4 +17,11 @@
     <string name="mid">Mid</string>
     <string name="high">High</string>
     <string name="living_room">Living Room</string>
+    <string name="direction">Direction</string>
+    <string name="down">Down</string>
+    <string name="mode">Mode</string>
+    <string name="cold">Cold</string>
+    <string name="eco">Eco</string>
+    <string name="auto">Auto</string>
+    <string name="sleep">Sleep</string>
 </resources>

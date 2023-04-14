@@ -1,11 +1,11 @@
 package com.example.air_condition;
 
+import static androidx.fragment.app.FragmentManager.TAG;
+
 import android.annotation.SuppressLint;
-import android.graphics.drawable.Drawable;
-import android.media.Image;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,13 +24,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
         fanBtn = findViewById(R.id.fanButton);
 
         fanBtn.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("RestrictedApi")
             @Override
             public void onClick(View view) {
-
+                Log.d(TAG, "onClick: fffff");
             }
         });
     }

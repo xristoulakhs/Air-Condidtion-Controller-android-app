@@ -17,8 +17,8 @@
         tools:ignore="MissingConstraints">
 
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_gravity="center"
             android:layout_marginStart="25dp"
             android:src="@drawable/ic_action_name" />
@@ -75,6 +75,7 @@
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:orientation="vertical"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -83,8 +84,6 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -95,7 +94,8 @@
                 android:background="@drawable/button"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:textAllCaps="false">
+                android:textAllCaps="false"
+                android:elevation="6dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -127,7 +127,8 @@
                 android:background="@drawable/button"
                 android:textAllCaps="false"
                 android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:elevation="6dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -158,7 +159,8 @@
                 android:background="@drawable/button"
                 android:textAllCaps="false"
                 android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:elevation="6dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -187,8 +189,6 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -199,7 +199,8 @@
                 android:background="@drawable/button"
                 android:textAllCaps="false"
                 android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:elevation="6dp">
 
                 <ImageView
                     android:layout_width="50dp"
@@ -223,7 +224,8 @@
                 android:background="@drawable/button"
                 android:textAllCaps="false"
                 android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:elevation="6dp">
 
                 <ImageView
                     android:layout_width="50dp"
@@ -247,7 +249,8 @@
                 android:background="@drawable/button"
                 android:textAllCaps="false"
                 android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:elevation="6dp">
 
                 <ImageView
                     android:layout_width="50dp"

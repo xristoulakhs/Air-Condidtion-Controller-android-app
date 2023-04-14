@@ -12,7 +12,7 @@
     <string name="settings">Settings</string>
 
     <string name="fan">Fan</string>
-<!--    fan settings-->
+    <!--    fan settings-->
     <string name="low">Low</string>
     <string name="mid">Mid</string>
     <string name="high">High</string>

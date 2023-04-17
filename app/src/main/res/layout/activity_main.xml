@@ -85,9 +85,9 @@
         <LinearLayout
             android:layout_width="300dp"
             android:layout_height="300dp"
-            android:orientation="vertical"
             android:elevation="10dp"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageView
                 android:layout_width="35dp"
@@ -97,9 +97,8 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="100dp"
-                android:gravity="center"
-                >
+                android:layout_height="150dp"
+                android:gravity="center">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -108,30 +107,27 @@
                     android:rotationX="0"
                     android:text="@string/temperature_number"
                     android:textColor="@color/grey"
-                    android:textStyle="bold"
-                    android:textSize="60sp" />
+                    android:textSize="88sp"
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:text="@string/celsius_symbol"
                     android:textColor="@color/blue"
+                    android:textSize="40sp"
                     android:textStyle="bold"
-                    android:textSize="35sp"/>
+                    android:layout_marginBottom="9dp"/>
             </LinearLayout>
 
             <ImageView
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_plus" />
+                android:src="@drawable/ic_minus" />
 
         </LinearLayout>
-        <!--        <ImageView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:src="@drawable/ic_plus" />-->
 
     </RelativeLayout>
 
@@ -170,13 +166,33 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/onOffBtn"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/on_off_button"
+        android:gravity="center"
+        android:padding="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/homeButtons"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/power"/>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/homeButtons"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:orientation="vertical"
         android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints">
 
@@ -191,10 +207,10 @@
                 android:layout_height="90dp"
                 android:layout_margin="15dp"
                 android:background="@drawable/button"
+                android:elevation="6dp"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:textAllCaps="false"
-                android:elevation="6dp">
+                android:textAllCaps="false">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -224,29 +240,29 @@
                 android:layout_height="90dp"
                 android:layout_margin="15dp"
                 android:background="@drawable/button"
-                android:textAllCaps="false"
-                android:orientation="vertical"
+                android:elevation="6dp"
                 android:gravity="center"
-                android:elevation="6dp">
+                android:orientation="vertical"
+                android:textAllCaps="false">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/direction"
-                    android:textSize="16sp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="45dp"
-                    android:src="@drawable/ic_air"/>
+                    android:src="@drawable/ic_air" />
 
                 <TextView
                     android:id="@+id/directionOptions"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/down"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black" />
 
             </LinearLayout>
 
@@ -256,30 +272,30 @@
                 android:layout_height="90dp"
                 android:layout_margin="15dp"
                 android:background="@drawable/button"
-                android:textAllCaps="false"
-                android:orientation="vertical"
+                android:elevation="6dp"
                 android:gravity="center"
-                android:elevation="6dp">
+                android:orientation="vertical"
+                android:textAllCaps="false">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/mode"
                     android:textColor="@color/black"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp" />
 
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/ic_cold"/>
+                    android:src="@drawable/ic_cold" />
 
                 <TextView
                     android:id="@+id/modeOptions"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/cold"
-                    android:textSize="16sp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
@@ -296,22 +312,22 @@
                 android:layout_height="90dp"
                 android:layout_margin="15dp"
                 android:background="@drawable/button"
-                android:textAllCaps="false"
-                android:orientation="vertical"
+                android:elevation="6dp"
                 android:gravity="center"
-                android:elevation="6dp">
+                android:orientation="vertical"
+                android:textAllCaps="false">
 
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/ic_eco"/>
+                    android:src="@drawable/ic_eco" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/eco"
-                    android:textSize="16sp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
@@ -321,22 +337,22 @@
                 android:layout_height="90dp"
                 android:layout_margin="15dp"
                 android:background="@drawable/button"
-                android:textAllCaps="false"
-                android:orientation="vertical"
+                android:elevation="6dp"
                 android:gravity="center"
-                android:elevation="6dp">
+                android:orientation="vertical"
+                android:textAllCaps="false">
 
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/ic_auto"/>
+                    android:src="@drawable/ic_auto" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/auto"
-                    android:textSize="16sp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
@@ -346,22 +362,22 @@
                 android:layout_height="90dp"
                 android:layout_margin="15dp"
                 android:background="@drawable/button"
-                android:textAllCaps="false"
-                android:orientation="vertical"
+                android:elevation="6dp"
                 android:gravity="center"
-                android:elevation="6dp">
+                android:orientation="vertical"
+                android:textAllCaps="false">
 
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/ic_sleep"/>
+                    android:src="@drawable/ic_sleep" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/sleep"
-                    android:textSize="16sp"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 

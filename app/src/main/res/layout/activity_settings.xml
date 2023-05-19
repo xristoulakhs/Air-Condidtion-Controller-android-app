@@ -5,20 +5,118 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/settingsTitle"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/settingsContents"
+        android:layout_width="330dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:text="@string/settings"
-        android:textAlignment="center"
-        android:textSize="25sp"
-        android:textColor="@color/black"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.469"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints">
 
+        <TextView
+            android:id="@+id/settingsTitle"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="56dp"
+            android:text="@string/settings"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="25dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.469"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <LinearLayout
+            android:id="@+id/settingsTurbo"
+            android:layout_width="330dp"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/turbo"
+                android:textColor="@color/black"
+                android:textSize="22sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/settingsVibration"
+            android:layout_width="330dp"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/vibration_on_touch"
+                android:textColor="@color/black"
+                android:textSize="22sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/settingsTimer"
+            android:layout_width="330dp"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/timer"
+                android:textColor="@color/black"
+                android:textSize="22sp" />
+        </LinearLayout>
+
+        <Spinner
+            android:id="@+id/temperatureScaleSpinner"
+            style="@android:style/Widget.Spinner"
+            android:layout_width="330dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="20dp"/>
+
+        <Spinner
+            android:id="@+id/myDevicesSpinner"
+            style="@android:style/Widget.Spinner"
+            android:layout_width="330dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="20dp"/>
+
+        <Spinner
+            android:id="@+id/languageSpinner"
+            style="@android:style/Widget.Spinner"
+            android:layout_width="330dp"
+            android:layout_height="40dp"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="250dp"
+        android:layout_height="30dp"
+        android:text="@string/version"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

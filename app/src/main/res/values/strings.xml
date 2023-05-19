@@ -34,4 +34,16 @@
     <string name="off">Off</string>
     <string name="temperature_number">23</string>
     <string name="celsius_symbol">°C</string>
+    <string name="vibration_on_touch">Vibration on touch</string>
+    <string name="turbo">Turbo</string>
+    <string name="timer">Timer</string>
+    <string name="version">Current Version 0.5.0</string>
+    <string name="temperatureScale">Temperature Scale</string>
+
+    //lista me tis suskeues
+    <string-array name="devices">
+        <item>Living Room</item>
+        <item>Kitchen</item>
+        <item>Bedroom</item>
+    </string-array>
 </resources>

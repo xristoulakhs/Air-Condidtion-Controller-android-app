@@ -1,9 +1,11 @@
 package com.example.air_condition;
 
+import android.annotation.SuppressLint;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +19,13 @@ public class SettingsActivity extends AppCompatActivity {
     Spinner scaleSpinner;
     Spinner devicesSpinner;
     Spinner languageSpinner;
+
+    @SuppressLint("UseSwitchCompatOrMaterialCode")
+    Switch turboSwitch;
+    @SuppressLint("UseSwitchCompatOrMaterialCode")
+    Switch vibrationSwitch;
+    @SuppressLint("UseSwitchCompatOrMaterialCode")
+    Switch timerSwitch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,5 +45,14 @@ public class SettingsActivity extends AppCompatActivity {
         ArrayAdapter<String> devicesArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, devices);
         devicesArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         devicesSpinner.setAdapter(devicesArrayAdapter);
+
+        turboSwitch = findViewById(R.id.turboSwitch);
+        boolean turboState = turboSwitch.isChecked();
+
+        vibrationSwitch = findViewById(R.id.vibrationSwitch);
+        boolean vibrationState = turboSwitch.isChecked();
+
+        timerSwitch = findViewById(R.id.timerSwitch);
+        boolean timerState = turboSwitch.isChecked();
     }
 }

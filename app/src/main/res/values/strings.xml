@@ -40,6 +40,24 @@
     <string name="version">Current Version 0.5.0</string>
     <string name="temperatureScale">Temperature Scale</string>
 
+    <string name="help_text">Help</string>
+    <string name="back_arrow_description">Back arrow</string>
+    <string name="image_line_description">Image line</string>
+    <string name="choose_ac_description">Description of the image</string>
+    <string name="help_text_description">Description of the help text</string>
+    <string name="ChooseRoom_description">This button displays the name of the currently selected room, it features two arrows, one on the left side and one on the right side, allowing you to navigate and change the selected room. Simply tap the arrows to cycle through the available rooms and adjust the A/C settings accordingly. With this intuitive button, you can effortlessly control the temperature in different areas of your home or office.</string>
+    <string name="Help_description">The Help button displays a list of buttons along with detailed explanations of their functions.</string>
+    <string name="Status_description">The status bar on your display indicates whether the A/C is on or off. It is designed to provide a quick visual indication of the current state of the A/C system. When the A/C is turned on, the status bar will be displayed in green color, indicating that the A/C is running. On the other hand, when the A/C is turned off, the status bar will be displayed in red color, indicating that the A/C is not running.</string>
+    <string name="Gear_description">It opens the apps settings, providing additional options and controls to manage the air conditioning system.</string>
+    <string name="Temperature_description">The Temperature Control circle allows you to adjust the temperature settings of your air conditioning system. It features a plus symbol (+) and a minus symbol (-) for increasing and decreasing the temperature, respectively. Simply press the plus symbol to raise the temperature and the minus symbol to lower it.</string>
+    <string name="Power_description">The Power Button is a control feature in the air conditioning system that allows you to easily turn the unit on and off. This button serves as the main switch for activating or deactivating the air conditioning system.</string>
+    <string name="FanSpeed_description">The Fan Speed button allows you to adjust the speed at which the fan operates. By pressing this button, you can cycle through different fan speed settings, giving you control over the airflow and the intensity of the cooling or heating in the room</string>
+    <string name="Direction_description">The Directions button lets you adjust the airflow direction manually by giving you the choice to redirect the air according to your preference. It gives you the flexibility to customize the cooling or heating experience by targeting the airflow towards you or distributing it evenly throughout the room. </string>
+    <string name="Mode_description">The Mode button lets you choose different operating modes. By pressing the button you can cycle through modes like Cool, Heat, Fan, and Auto.To use it, press the button until you reach your desired mode. Cool mode cools the room, Heat mode provides warmth, Fan mode circulates air without cooling or heating, and Auto mode adjusts settings based on room conditions. Customize your comfort easily with the "Mode" button.</string>
+    <string name="Eco_description">The Eco button enables the energy-saving mode for your air conditioning system. When you press the button, the system adjusts its settings to optimize energy efficiency.This helps reduce power consumption and promote environmentally friendly operation.</string>
+    <string name="Auto_description">The Auto button on an A/C controller enables the automatic mode for your air conditioning system. By pressing this button, the A/C unit will adjust the temperature and fan speed automatically based on the current conditions in the room.</string>
+    <string name="Sleep_description">The Sleep button is designed to optimize comfort and energy efficiency during nighttime or sleep hours. When pressed, the Sleep mode activates a pre-programmed setting that gradually adjusts the temperature and airflow to create a more comfortable sleeping environment. It typically reduces the cooling or heating intensity while maintaining a pleasant temperature.</string>
+
     //lista me tis suskeues
     <string-array name="devices">
         <item>Living Room</item>

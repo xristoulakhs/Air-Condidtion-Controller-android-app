@@ -1,22 +1,519 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".HelpActivity">
+    android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageButton3"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/ic_action_name"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-       />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/imageBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="45dp"
+            android:src="@drawable/back_arrow"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="@string/back_arrow_description"
+            android:padding="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textHelp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44dp"
+            android:contentDescription="@string/help_text_description"
+            android:focusable="true"
+            android:importantForAccessibility="yes"
+            android:text="@string/help_text"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.428"
+            app:layout_constraintStart_toEndOf="@id/imageBack"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageLine"
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_below="@id/textHelp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:background="#000000"
+            android:contentDescription="@string/image_line_description"
+            android:paddingStart="90dp"
+            android:paddingEnd="90dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.554"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textHelp" />
+
+        <!--Room Icon-->
+        <LinearLayout
+            android:id="@+id/RoomLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="45dp"
+            app:layout_constraintTop_toBottomOf="@id/imageLine"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                android:id="@+id/ChooseRoom_Imageview"
+                android:layout_width="107dp"
+                android:layout_height="70dp"
+                android:contentDescription="@string/choose_ac_description"
+                android:paddingStart="10dp"
+                android:paddingEnd="0dp"
+                android:src="@drawable/choose_ac" />
+
+            <TextView
+                android:id="@+id/ChooseRoomDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="15dp"
+                android:text="@string/ChooseRoom_description"
+                android:textColor="#000000"
+                android:layout_gravity="center_vertical"
+                app:layout_constraintStart_toEndOf="@+id/imageLine" />
+
+        </LinearLayout>
+<!--
+        <View
+            android:id="@+id/line"
+            android:layout_width="290dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="250dp"
+            android:background="#000000"
+            app:layout_constraintBottom_toTopOf="@id/GearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.559"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageLine" />
 
 
+        <View
+            android:id="@+id/line2"
+            android:layout_width="290dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="60dp"
+            android:background="#000000"
+            app:layout_constraintBottom_toTopOf="@id/StatusLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.559"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/line" />
+
+        <View
+            android:id="@+id/line3"
+            android:layout_width="290dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="380dp"
+            android:background="#000000"
+            app:layout_constraintBottom_toTopOf="@id/StatusLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.559"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/line2" />
+
+        <View
+            android:id="@+id/line4"
+            android:layout_width="290dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="550dp"
+            android:background="#000000"
+            app:layout_constraintBottom_toTopOf="@id/StatusLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.559"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/line2" />
+
+        <View
+            android:id="@+id/line5"
+            android:layout_width="290dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="870dp"
+            android:background="#000000"
+            app:layout_constraintBottom_toTopOf="@id/StatusLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.559"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/line2" />
+-->
+        <!--Help Button -->
+        <RelativeLayout
+            android:id="@+id/HelpLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/RoomLayout">
+
+            <ImageView
+                android:id="@+id/HelpIcon_Imageview"
+                android:layout_width="61dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="15dp"
+                app:srcCompat="@drawable/help_icon"
+                android:contentDescription="@string/choose_ac_description" />
+
+            <TextView
+                android:id="@+id/HelpDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="130dp"
+                android:layout_marginEnd="15dp"
+                android:text="@string/Help_description"
+                android:textColor="#000000" />
+
+            <!-- Add more image views, text views, and lines here -->
+
+        </RelativeLayout>
+    <!--Status Icon-->
+        <LinearLayout
+            android:id="@+id/StatusLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/HelpLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- Add your views below the lines -->
+            <ImageView
+                android:id="@+id/Status_ImageView"
+                android:layout_width="80dp"
+                android:layout_height="70dp"
+                android:contentDescription="@string/choose_ac_description"
+                android:paddingStart="18dp"
+                android:paddingEnd="0dp"
+                android:src="@drawable/status_icon" />
+
+            <TextView
+                android:id="@+id/StatusDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="15dp"
+                android:text="@string/Status_description"
+                android:textColor="#000000"
+                android:layout_gravity="center_vertical"
+                app:layout_constraintStart_toEndOf="@+id/imageLine" />
+
+        </LinearLayout>
+
+        <!--Gear Icon-->
+        <LinearLayout
+            android:id="@+id/GearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintTop_toBottomOf="@id/StatusLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- Add your views below the lines -->
+            <ImageView
+                android:id="@+id/Gear_Imageview"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:contentDescription="@string/choose_ac_description"
+                android:paddingStart="15dp"
+                android:paddingEnd="0dp"
+                android:src="@drawable/ic_settings" />
+
+            <TextView
+                android:id="@+id/GearDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="55dp"
+                android:text="@string/Gear_description"
+                android:textColor="#000000"
+                android:layout_gravity="center_vertical"
+                app:layout_constraintStart_toEndOf="@+id/imageLine" />
+        </LinearLayout>
+
+        <!--Temperature Icon-->
+        <LinearLayout
+            android:id="@+id/TemperatureLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintTop_toBottomOf="@id/GearLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- Add your views below the lines -->
+            <ImageView
+                android:id="@+id/Temperature_Imageview"
+                android:layout_width="80dp"
+                android:layout_height="70dp"
+                android:contentDescription="@string/choose_ac_description"
+                android:paddingStart="18dp"
+                android:paddingEnd="0dp"
+                android:src="@drawable/temperature_icon" />
+
+            <TextView
+                android:id="@+id/TemperatureDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="47dp"
+                android:text="@string/Temperature_description"
+                android:textColor="#000000"
+                android:layout_gravity="center_vertical"
+                app:layout_constraintStart_toEndOf="@+id/imageLine" />
+        </LinearLayout>
+
+        <!--Power Button Icon-->
+        <LinearLayout
+            android:id="@+id/PowerButtonLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintTop_toBottomOf="@id/TemperatureLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- Add your views below the lines -->
+            <ImageView
+                android:id="@+id/PowerButtonImageview"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:contentDescription="@string/choose_ac_description"
+                android:paddingStart="18dp"
+                android:paddingEnd="0dp"
+                android:src="@drawable/power_button_icon" />
+
+            <TextView
+                android:id="@+id/PowerButtonDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="56dp"
+                android:text="@string/Power_description"
+                android:textColor="#000000"
+                android:layout_gravity="center_vertical"
+                app:layout_constraintStart_toEndOf="@+id/imageLine" />
+        </LinearLayout>
+
+        <!--Fan Speed Icon-->
+        <LinearLayout
+            android:id="@+id/FanSpeedLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintTop_toBottomOf="@id/PowerButtonLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- Add your views below the lines -->
+            <ImageView
+                android:id="@+id/FanSpeedImageview"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:contentDescription="@string/choose_ac_description"
+                android:paddingStart="18dp"
+                android:paddingEnd="0dp"
+                android:src="@drawable/fan_speed_icon" />
+
+            <TextView
+                android:id="@+id/FanSpeedDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:text="@string/FanSpeed_description"
+                android:textColor="#000000"
+                android:layout_gravity="center_vertical"
+                app:layout_constraintStart_toEndOf="@+id/imageLine" />
+        </LinearLayout>
+
+        <!--Direction Icon-->
+        <LinearLayout
+            android:id="@+id/DirectionLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintTop_toBottomOf="@id/FanSpeedLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- Add your views below the lines -->
+            <ImageView
+                android:id="@+id/ModeImageview"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:contentDescription="@string/choose_ac_description"
+                android:paddingStart="18dp"
+                android:paddingEnd="0dp"
+                android:src="@drawable/direction_icon" />
+
+            <TextView
+                android:id="@+id/DirectionDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:text="@string/Direction_description"
+                android:textColor="#000000"
+                android:layout_gravity="center_vertical"
+                app:layout_constraintStart_toEndOf="@+id/imageLine"/>
+        </LinearLayout>
+
+
+        <!--Mode Icon-->
+        <LinearLayout
+            android:id="@+id/ModeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintTop_toBottomOf="@id/DirectionLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- Add your views below the lines -->
+            <ImageView
+                android:id="@+id/DirectionImageview"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:contentDescription="@string/choose_ac_description"
+                android:paddingStart="18dp"
+                android:paddingEnd="0dp"
+                android:src="@drawable/mode_icon" />
+
+            <TextView
+                android:id="@+id/ModeDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:text="@string/Mode_description"
+                android:textColor="#000000"
+                android:layout_gravity="center_vertical"
+                app:layout_constraintStart_toEndOf="@+id/imageLine" />
+        </LinearLayout>
+
+        <!--Eco Icon-->
+        <LinearLayout
+            android:id="@+id/EcoLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintTop_toBottomOf="@id/ModeLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- Add your views below the lines -->
+            <ImageView
+                android:id="@+id/EcoImageview"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:contentDescription="@string/choose_ac_description"
+                android:paddingStart="18dp"
+                android:paddingEnd="0dp"
+                android:src="@drawable/eco_icon" />
+
+            <TextView
+                android:id="@+id/EcoDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:text="@string/Eco_description"
+                android:textColor="#000000"
+                android:layout_gravity="center_vertical"
+                app:layout_constraintStart_toEndOf="@+id/imageLine" />
+        </LinearLayout>
+
+        <!--Auto Icon-->
+        <LinearLayout
+            android:id="@+id/AutoLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintTop_toBottomOf="@id/EcoLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- Add your views below the lines -->
+            <ImageView
+                android:id="@+id/AutoImageview"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:contentDescription="@string/choose_ac_description"
+                android:paddingStart="18dp"
+                android:paddingEnd="0dp"
+                android:src="@drawable/auto_icon" />
+
+            <TextView
+                android:id="@+id/AutoDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:text="@string/Auto_description"
+                android:textColor="#000000"
+                android:layout_gravity="center_vertical"
+                app:layout_constraintStart_toEndOf="@+id/imageLine" />
+        </LinearLayout>
+
+        <!--Sleep Icon-->
+        <LinearLayout
+            android:id="@+id/SleepLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintTop_toBottomOf="@id/AutoLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- Add your views below the lines -->
+            <ImageView
+                android:id="@+id/SleepImageview"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:contentDescription="@string/choose_ac_description"
+                android:paddingStart="18dp"
+                android:paddingEnd="0dp"
+                android:src="@drawable/sleep_icon" />
+
+            <TextView
+                android:id="@+id/SleepDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:text="@string/Sleep_description"
+                android:textColor="#000000"
+                android:layout_gravity="center_vertical"
+                app:layout_constraintStart_toEndOf="@+id/imageLine" />
+
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

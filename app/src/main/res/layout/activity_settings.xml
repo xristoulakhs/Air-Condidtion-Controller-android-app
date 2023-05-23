@@ -22,19 +22,35 @@
         <TextView
             android:id="@+id/settingsTitle"
             android:layout_width="250dp"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:layout_marginTop="56dp"
             android:text="@string/settings"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="25sp"
             android:textStyle="bold"
-            android:layout_marginBottom="25dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.469"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/imageLine"
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_below="@id/textHelp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="25dp"
+            android:layout_marginTop="8dp"
+            android:background="#000000"
+            android:contentDescription="@string/image_line_description"
+            android:paddingStart="90dp"
+            android:paddingEnd="90dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.554"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textHelp" />
 
         <LinearLayout
             android:id="@+id/settingsTurbo"
@@ -54,8 +70,9 @@
 
             <Switch
                 android:id="@+id/turboSwitch"
-                android:layout_width="50dp"
+                android:layout_width="0dp"
                 android:layout_height="22dp"
+                android:layout_weight="1"
                 android:layout_gravity="center"
                 android:layout_marginStart="200dp"
                 tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -80,10 +97,38 @@
 
             <Switch
                 android:id="@+id/vibrationSwitch"
-                android:layout_width="50dp"
+                android:layout_width="0dp"
                 android:layout_height="22dp"
+                android:layout_weight="1"
                 android:layout_gravity="center"
-                android:layout_marginStart="76dp"
+                android:layout_marginStart="78dp"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/voiceSettings"
+            android:layout_width="330dp"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Speech"
+                android:textColor="@color/black"
+                android:textSize="22sp" />
+
+            <Switch
+                android:id="@+id/voiceSwitch"
+                android:layout_width="0dp"
+                android:layout_height="22dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_marginStart="185dp"
                 tools:ignore="UseSwitchCompatOrMaterialXml" />
 
         </LinearLayout>
@@ -104,22 +149,82 @@
                 android:textColor="@color/black"
                 android:textSize="22sp" />
 
-            <Switch
-                android:id="@+id/timerSwitch"
-                android:layout_width="50dp"
-                android:layout_height="22dp"
-                android:layout_gravity="center"
-                android:layout_marginStart="200dp"
-                tools:ignore="UseSwitchCompatOrMaterialXml" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:id="@+id/timerMinus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_minus"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20"
+                    android:textSize="25sp"
+                    android:textColor="@color/black"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginStart="12dp"/>
+
+                <ImageView
+                    android:id="@+id/timerPlus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_plus"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 
-        <Spinner
-            android:id="@+id/temperatureScaleSpinner"
-            style="@android:style/Widget.Spinner"
-            android:layout_width="330dp"
-            android:layout_height="40dp"
-            android:layout_marginBottom="20dp"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/temperature_scale"
+                android:layout_gravity="start"
+                android:textSize="22sp"
+                android:textColor="@color/black"
+                android:layout_marginBottom="10dp"/>
+
+            <RadioGroup
+                android:id="@+id/temperatureScaleSpinner"
+                android:layout_width="330dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <RadioButton
+                    android:id="@+id/temperatureScaleCelsius"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/celsius"
+                    android:textSize="18sp"/>
+                <RadioButton
+                    android:id="@+id/temperatureScaleFahrenheit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/fahrenheit"
+                    android:textSize="18sp"/>
+            </RadioGroup>
+        </LinearLayout>
 
         <Spinner
             android:id="@+id/myDevicesSpinner"

@@ -15,23 +15,5 @@ public class HelpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
 
-
-        //click listener for the back arrow
-        ImageView imageBack = findViewById(R.id.imageBack);
-        imageBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Handle click event, navigate to the main screen
-                Intent intent = new Intent(HelpActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-
-
-                TextView textHelp = findViewById(R.id.textHelp);
-
-
-
-            }
-        });
-    }
+        }
 }

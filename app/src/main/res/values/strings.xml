@@ -59,6 +59,10 @@
     <string name="Auto_description">The Auto button on an A/C controller enables the automatic mode for your air conditioning system. By pressing this button, the A/C unit will adjust the temperature and fan speed automatically based on the current conditions in the room.</string>
     <string name="Sleep_description">The Sleep button is designed to optimize comfort and energy efficiency during nighttime or sleep hours. When pressed, the Sleep mode activates a pre-programmed setting that gradually adjusts the temperature and airflow to create a more comfortable sleeping environment. It typically reduces the cooling or heating intensity while maintaining a pleasant temperature.</string>
 
+    <string name="celsius">Celsius(°C)</string>
+    <string name="fahrenheit">Fahrenheit(°F)</string>
+    <string name="temperature_scale">Temperature Scale</string>
+
     //lista me tis suskeues
     <string-array name="devices">
         <item>Living Room</item>

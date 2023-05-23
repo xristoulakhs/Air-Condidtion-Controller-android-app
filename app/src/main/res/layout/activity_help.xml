@@ -1,34 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
-        <!--
-
-        CONTENT DESCRIPTIONS
-        ICONS ALLIGNMENT
-
-
-        -->
-
-        <ImageView
-            android:id="@+id/imageBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="45dp"
-            android:src="@drawable/back_arrow"
-            android:clickable="true"
-            android:focusable="true"
-            android:contentDescription="@string/back_arrow_description"
-            android:padding="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textHelp"
@@ -39,12 +18,11 @@
             android:focusable="true"
             android:importantForAccessibility="yes"
             android:text="@string/help_text"
+            android:textColor="#000000"
             android:textSize="26sp"
             android:textStyle="bold"
-            android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.428"
-            app:layout_constraintStart_toEndOf="@id/imageBack"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
@@ -59,7 +37,6 @@
             android:paddingStart="90dp"
             android:paddingEnd="90dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.554"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textHelp" />
 
@@ -96,68 +73,7 @@
                 app:layout_constraintStart_toEndOf="@+id/imageLine" />
 
         </LinearLayout>
-<!--
-        <View
-            android:id="@+id/line"
-            android:layout_width="290dp"
-            android:layout_height="2dp"
-            android:layout_marginTop="250dp"
-            android:background="#000000"
-            app:layout_constraintBottom_toTopOf="@id/GearLayout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.559"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageLine" />
 
-
-        <View
-            android:id="@+id/line2"
-            android:layout_width="290dp"
-            android:layout_height="2dp"
-            android:layout_marginTop="60dp"
-            android:background="#000000"
-            app:layout_constraintBottom_toTopOf="@id/StatusLayout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.559"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/line" />
-
-        <View
-            android:id="@+id/line3"
-            android:layout_width="290dp"
-            android:layout_height="2dp"
-            android:layout_marginTop="380dp"
-            android:background="#000000"
-            app:layout_constraintBottom_toTopOf="@id/StatusLayout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.559"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/line2" />
-
-        <View
-            android:id="@+id/line4"
-            android:layout_width="290dp"
-            android:layout_height="2dp"
-            android:layout_marginTop="550dp"
-            android:background="#000000"
-            app:layout_constraintBottom_toTopOf="@id/StatusLayout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.559"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/line2" />
-
-        <View
-            android:id="@+id/line5"
-            android:layout_width="290dp"
-            android:layout_height="2dp"
-            android:layout_marginTop="870dp"
-            android:background="#000000"
-            app:layout_constraintBottom_toTopOf="@id/StatusLayout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.559"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/line2" />
--->
         <!--Help Button -->
         <RelativeLayout
             android:id="@+id/HelpLayout"

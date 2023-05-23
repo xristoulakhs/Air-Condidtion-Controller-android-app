@@ -32,11 +32,6 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        settingsTxt = findViewById(R.id.settingsTitle);
-        settingsTxt.setPaintFlags(settingsTxt.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG); //gia upogrammisi tou text
-
-        scaleSpinner = findViewById(R.id.temperatureScaleSpinner);
-
         devicesSpinner = findViewById(R.id.myDevicesSpinner);
         ArrayList<String> devices = new ArrayList<>();
         devices.add("Living Room");
@@ -52,7 +47,5 @@ public class SettingsActivity extends AppCompatActivity {
         vibrationSwitch = findViewById(R.id.vibrationSwitch);
         boolean vibrationState = turboSwitch.isChecked();
 
-        timerSwitch = findViewById(R.id.timerSwitch);
-        boolean timerState = turboSwitch.isChecked();
     }
 }

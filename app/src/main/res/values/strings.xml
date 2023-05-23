@@ -45,6 +45,7 @@
     <string name="image_line_description">Image line</string>
     <string name="choose_ac_description">Description of the image</string>
     <string name="help_text_description">Description of the help text</string>
+
     <string name="ChooseRoom_description">This button displays the name of the currently selected room, it features two arrows, one on the left side and one on the right side, allowing you to navigate and change the selected room. Simply tap the arrows to cycle through the available rooms and adjust the A/C settings accordingly. With this intuitive button, you can effortlessly control the temperature in different areas of your home or office.</string>
     <string name="Help_description">The Help button displays a list of buttons along with detailed explanations of their functions.</string>
     <string name="Status_description">The status bar on your display indicates whether the A/C is on or off. It is designed to provide a quick visual indication of the current state of the A/C system. When the A/C is turned on, the status bar will be displayed in green color, indicating that the A/C is running. On the other hand, when the A/C is turned off, the status bar will be displayed in red color, indicating that the A/C is not running.</string>

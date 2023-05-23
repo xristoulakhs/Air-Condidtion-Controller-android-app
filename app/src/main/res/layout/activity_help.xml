@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <!--
+
+        CONTENT DESCRIPTIONS
+        ICONS ALLIGNMENT
+
+
+        -->
 
         <ImageView
             android:id="@+id/imageBack"
@@ -28,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="44dp"
-            android:contentDescription="@string/help_text_description"
+            android:contentDescription="@string/help_text"
             android:focusable="true"
             android:importantForAccessibility="yes"
             android:text="@string/help_text"
@@ -63,6 +70,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="45dp"
+            android:layout_marginEnd="4dp"
             app:layout_constraintTop_toBottomOf="@id/imageLine"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
@@ -156,6 +164,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:layout_marginEnd="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/RoomLayout">
@@ -165,7 +174,7 @@
                 android:layout_width="61dp"
                 android:layout_height="50dp"
                 android:layout_alignParentStart="true"
-                android:layout_marginStart="15dp"
+                android:layout_marginStart="19dp"
                 app:srcCompat="@drawable/help_icon"
                 android:contentDescription="@string/choose_ac_description" />
 
@@ -178,7 +187,7 @@
                 android:text="@string/Help_description"
                 android:textColor="#000000" />
 
-            <!-- Add more image views, text views, and lines here -->
+
 
         </RelativeLayout>
     <!--Status Icon-->
@@ -188,17 +197,18 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="20dp"
+            android:layout_marginEnd="4dp"
             app:layout_constraintTop_toBottomOf="@id/HelpLayout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
-            <!-- Add your views below the lines -->
+
             <ImageView
                 android:id="@+id/Status_ImageView"
-                android:layout_width="80dp"
+                android:layout_width="85dp"
                 android:layout_height="70dp"
                 android:contentDescription="@string/choose_ac_description"
-                android:paddingStart="18dp"
+                android:paddingStart="20dp"
                 android:paddingEnd="0dp"
                 android:src="@drawable/status_icon" />
 
@@ -206,7 +216,7 @@
                 android:id="@+id/StatusDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
+                android:layout_marginStart="46dp"
                 android:layout_marginEnd="15dp"
                 android:text="@string/Status_description"
                 android:textColor="#000000"
@@ -222,18 +232,19 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="15dp"
+            android:layout_marginEnd="4dp"
             app:layout_constraintTop_toBottomOf="@id/StatusLayout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
-            <!-- Add your views below the lines -->
+
+
             <ImageView
                 android:id="@+id/Gear_Imageview"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="70dp"
+                android:layout_height="65dp"
                 android:contentDescription="@string/choose_ac_description"
-                android:paddingStart="15dp"
+                android:paddingStart="25dp"
                 android:paddingEnd="0dp"
                 android:src="@drawable/ic_settings" />
 
@@ -241,7 +252,7 @@
                 android:id="@+id/GearDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="55dp"
+                android:layout_marginStart="61dp"
                 android:text="@string/Gear_description"
                 android:textColor="#000000"
                 android:layout_gravity="center_vertical"
@@ -255,26 +266,26 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="15dp"
+            android:layout_marginEnd="4dp"
             app:layout_constraintTop_toBottomOf="@id/GearLayout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
-            <!-- Add your views below the lines -->
+
             <ImageView
                 android:id="@+id/Temperature_Imageview"
                 android:layout_width="80dp"
-                android:layout_height="70dp"
+                android:layout_height="80dp"
                 android:contentDescription="@string/choose_ac_description"
-                android:paddingStart="18dp"
+                android:paddingStart="16dp"
                 android:paddingEnd="0dp"
-                android:src="@drawable/temperature_icon" />
+                android:src="@drawable/temp_icon" />
 
             <TextView
                 android:id="@+id/TemperatureDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="47dp"
+                android:layout_marginStart="51dp"
                 android:text="@string/Temperature_description"
                 android:textColor="#000000"
                 android:layout_gravity="center_vertical"
@@ -288,12 +299,13 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="15dp"
+            android:layout_marginEnd="4dp"
             app:layout_constraintTop_toBottomOf="@id/TemperatureLayout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
-            <!-- Add your views below the lines -->
+
+
             <ImageView
                 android:id="@+id/PowerButtonImageview"
                 android:layout_width="70dp"
@@ -307,7 +319,7 @@
                 android:id="@+id/PowerButtonDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="56dp"
+                android:layout_marginStart="61dp"
                 android:text="@string/Power_description"
                 android:textColor="#000000"
                 android:layout_gravity="center_vertical"
@@ -321,12 +333,12 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="15dp"
+            android:layout_marginEnd="4dp"
             app:layout_constraintTop_toBottomOf="@id/PowerButtonLayout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
-            <!-- Add your views below the lines -->
+
             <ImageView
                 android:id="@+id/FanSpeedImageview"
                 android:layout_width="70dp"
@@ -340,7 +352,7 @@
                 android:id="@+id/FanSpeedDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
+                android:layout_marginStart="61dp"
                 android:text="@string/FanSpeed_description"
                 android:textColor="#000000"
                 android:layout_gravity="center_vertical"
@@ -354,12 +366,12 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="15dp"
+            android:layout_marginEnd="4dp"
             app:layout_constraintTop_toBottomOf="@id/FanSpeedLayout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
-            <!-- Add your views below the lines -->
+
             <ImageView
                 android:id="@+id/ModeImageview"
                 android:layout_width="70dp"
@@ -373,7 +385,7 @@
                 android:id="@+id/DirectionDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
+                android:layout_marginStart="61dp"
                 android:text="@string/Direction_description"
                 android:textColor="#000000"
                 android:layout_gravity="center_vertical"
@@ -388,12 +400,12 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="15dp"
+            android:layout_marginEnd="4dp"
             app:layout_constraintTop_toBottomOf="@id/DirectionLayout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
-            <!-- Add your views below the lines -->
+
             <ImageView
                 android:id="@+id/DirectionImageview"
                 android:layout_width="70dp"
@@ -407,7 +419,7 @@
                 android:id="@+id/ModeDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
+                android:layout_marginStart="61dp"
                 android:text="@string/Mode_description"
                 android:textColor="#000000"
                 android:layout_gravity="center_vertical"
@@ -421,12 +433,12 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="15dp"
+            android:layout_marginEnd="4dp"
             app:layout_constraintTop_toBottomOf="@id/ModeLayout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
-            <!-- Add your views below the lines -->
+
             <ImageView
                 android:id="@+id/EcoImageview"
                 android:layout_width="70dp"
@@ -440,7 +452,7 @@
                 android:id="@+id/EcoDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
+                android:layout_marginStart="61dp"
                 android:text="@string/Eco_description"
                 android:textColor="#000000"
                 android:layout_gravity="center_vertical"
@@ -454,12 +466,12 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="15dp"
+            android:layout_marginEnd="4dp"
             app:layout_constraintTop_toBottomOf="@id/EcoLayout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
-            <!-- Add your views below the lines -->
+
             <ImageView
                 android:id="@+id/AutoImageview"
                 android:layout_width="70dp"
@@ -473,7 +485,7 @@
                 android:id="@+id/AutoDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
+                android:layout_marginStart="61dp"
                 android:text="@string/Auto_description"
                 android:textColor="#000000"
                 android:layout_gravity="center_vertical"
@@ -487,12 +499,12 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="15dp"
+            android:layout_marginEnd="4dp"
             app:layout_constraintTop_toBottomOf="@id/AutoLayout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
-            <!-- Add your views below the lines -->
+
             <ImageView
                 android:id="@+id/SleepImageview"
                 android:layout_width="70dp"
@@ -506,7 +518,7 @@
                 android:id="@+id/SleepDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
+                android:layout_marginStart="61dp"
                 android:text="@string/Sleep_description"
                 android:textColor="#000000"
                 android:layout_gravity="center_vertical"

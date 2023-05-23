@@ -21,7 +21,7 @@ public class HelpActivity extends AppCompatActivity {
         imageBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Handle click event, e.g., navigate to the main screen
+                // Handle click event, navigate to the main screen
                 Intent intent = new Intent(HelpActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
@@ -30,8 +30,6 @@ public class HelpActivity extends AppCompatActivity {
                 TextView textHelp = findViewById(R.id.textHelp);
 
 
-
-        // Further customization of the TextView can be done here
 
             }
         });

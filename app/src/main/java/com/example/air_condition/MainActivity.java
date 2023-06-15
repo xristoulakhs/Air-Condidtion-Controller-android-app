@@ -87,20 +87,6 @@ public class MainActivity extends AppCompatActivity {
         previousImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //edw kai sto nextImg (koumpia pou allazoun tis suskeues) pairnoume plirofories
-                //apo ton pinaka devices pou einai sto strings.xml ton opoio metatrepsame se arraylist
-                //brikame to index tis suskeuis pou psaxnoume kai tin pirame me tin methodo get
-//                Context context = getApplicationContext();
-//                ArrayList<String> devicesArray = new ArrayList<>(Arrays.asList(context.getResources().getStringArray(R.array.devices)));
-//                int previousDeviceIndex = devicesArray.indexOf(currentText.getText().toString()) - 1;
-//                System.out.println(DAO.getNextAC());
-//                if(previousDeviceIndex < 0){
-//                    currentText.setText(devicesArray.get(devicesArray.size() - 1));
-//                }
-//                else {
-//                    currentText.setText(devicesArray.get(previousDeviceIndex));
-//                }
-//
                 AC ac = DAO.getNextAC();
                 currentText.setText(ac.getAc());
                 setData(ac);
@@ -110,16 +96,7 @@ public class MainActivity extends AppCompatActivity {
         nextImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Context context = getApplicationContext();
-//                ArrayList<String> devicesArray = new ArrayList<>(Arrays.asList(context.getResources().getStringArray(R.array.devices)));
-//                int nextDeviceIndex = devicesArray.indexOf(currentText.getText().toString()) + 1;
-//                System.out.println(DAO.getPrevious());
-//                if(nextDeviceIndex >= devicesArray.size()){
-//                    currentText.setText(devicesArray.get(0));
-//                }
-//                else {
-//                    currentText.setText(devicesArray.get(nextDeviceIndex));
-//                }
+
                 AC ac = DAO.getPrevious();
                 currentText.setText(ac.getAc());
                 setData(ac);
@@ -148,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
                 int newTemperature = Integer.parseInt(temperatureText.getText().toString()) + 1;
                 if(newTemperature<=30){
                     temperatureText.setText(Integer.toString(newTemperature));
+                    DAO.getCurrent().setTemperature(newTemperature);
                 }
             }
         });
@@ -158,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
                 int newTemperature = Integer.parseInt(temperatureText.getText().toString()) - 1;
                 if(newTemperature>=15){
                     temperatureText.setText(Integer.toString(newTemperature));
+                    DAO.getCurrent().setTemperature(newTemperature);
                 }
             }
         });
@@ -199,14 +178,17 @@ public class MainActivity extends AppCompatActivity {
         directionBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(DAO.getCurrent().equals("Down")){
+                if(DAO.getCurrent().getDirectionOptions().equals("Down")){
+                    Log.d("comment", "onClick: down");
                     directionOptions.setText("Middle");
                     DAO.getCurrent().setDirectionOptions("Middle");
-                } else if (DAO.getCurrent().equals("Middle")) {
+                } else if (DAO.getCurrent().getDirectionOptions().equals("Middle")) {
+                    Log.d("comment", "onClick: middle");
                     directionOptions.setText("Up");
                     DAO.getCurrent().setDirectionOptions("Up");
                 }
                 else {
+                    Log.d("comment", "onClick: up");
                     directionOptions.setText("Down");
                     DAO.getCurrent().setDirectionOptions("Down");
                 }
@@ -313,6 +295,17 @@ public class MainActivity extends AppCompatActivity {
             directionOptions.setText("Middle");
         } else if (DAO.getCurrent().equals("Middle")) {
             directionOptions.setText("Middle");
+        }
+        else {
+            directionOptions.setText("Down");
+        }
+
+        temperatureText.setText(Integer.toString(ac.getTemperature()));
+
+        if(DAO.getCurrent().getDirectionOptions().equals("Middle")){
+            directionOptions.setText("Middle");
+        } else if (DAO.getCurrent().getDirectionOptions().equals("Up")) {
+            directionOptions.setText("Up");
         }
         else {
             directionOptions.setText("Down");

@@ -3,7 +3,7 @@ package com.example.air_condition.dao;
 public class AC {
 
     private String ac;
-    private double temperature;
+    private int temperature;
     private boolean status;
     private String fanOption;
     private String directionOptions;
@@ -12,7 +12,7 @@ public class AC {
     private boolean auto;
     private boolean sleep;
 
-    public AC(String ac, double temperature, boolean status, String fanOption, String directionOptions, String modeOptions, boolean eco, boolean auto, boolean sleep) {
+    public AC(String ac, int temperature, boolean status, String fanOption, String directionOptions, String modeOptions, boolean eco, boolean auto, boolean sleep) {
         this.ac = ac;
         this.temperature = temperature;
         this.status = status;
@@ -35,11 +35,11 @@ public class AC {
         this.ac = ac;
     }
 
-    public double getTemperature() {
+    public int getTemperature() {
         return temperature;
     }
 
-    public void setTemperature(double temperature) {
+    public void setTemperature(int temperature) {
         this.temperature = temperature;
     }
 
@@ -99,11 +99,11 @@ public class AC {
         this.sleep = !this.sleep;
     }
 
-    public double getFahrenheit() {
+    public int getFahrenheit() {
         return (this.temperature * 9/5) + 32;
     }
 
-    public void setFahrenheit(double temp) {
+    public void setFahrenheit(int temp) {
         this.temperature = (temp - 32) * 5/9;
     }
 

@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     TextView statusText;
     TextView temperatureText;
     TextView currentText;
+    TextView scaleText;
 
     TextView fanOptions;
     TextView directionOptions;
@@ -70,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         powerBtn = findViewById(R.id.onOffBtn);
 
         statusText = findViewById(R.id.statusText);
+        scaleText = findViewById(R.id.scale);
         temperatureText = findViewById(R.id.temperature);
 
         fanOptions = findViewById(R.id.fanOptions);
@@ -82,7 +84,6 @@ public class MainActivity extends AppCompatActivity {
         plusImg = findViewById(R.id.plusImg);
         minusImg =  findViewById(R.id.minusImg);
         modeImg = findViewById(R.id.modeImage);
-
 
         previousImg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -300,7 +301,7 @@ public class MainActivity extends AppCompatActivity {
             directionOptions.setText("Down");
         }
 
-        temperatureText.setText(Integer.toString(ac.getTemperature()));
+//        temperatureText.setText(Integer.toString(ac.getTemperature()));
 
         if(DAO.getCurrent().getDirectionOptions().equals("Middle")){
             directionOptions.setText("Middle");
@@ -311,5 +312,13 @@ public class MainActivity extends AppCompatActivity {
             directionOptions.setText("Down");
         }
 
+        if(DAO.isCelcius()){
+            temperatureText.setText(Integer.toString(ac.getTemperature()));
+            scaleText.setText("°C");
+        }
+        else{
+            temperatureText.setText(Integer.toString(ac.getFahrenheit()));
+            scaleText.setText("°F");
+        }
     }
 }

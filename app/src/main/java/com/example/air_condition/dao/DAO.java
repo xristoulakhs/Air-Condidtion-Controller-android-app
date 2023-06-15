@@ -7,6 +7,8 @@ public class DAO {
 
     static List<AC> acList = new ArrayList<>();
     static int counter = 0;
+    static boolean celcius = true; // an einai celcius
+
 
     static {
         acList.add(new AC("Living room", 25, false, "Low", "Down", "Cold", false, false, false));
@@ -27,5 +29,14 @@ public class DAO {
 
     public static AC getCurrent() {
         return acList.get(counter);
+    }
+
+
+    public static boolean isCelcius() {
+        return celcius;
+    }
+
+    public static void setCelcius(boolean celcius) {
+        DAO.celcius = celcius;
     }
 }

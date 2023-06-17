@@ -3,12 +3,16 @@ package com.example.air_condition;
 import android.annotation.SuppressLint;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.air_condition.dao.DAO;
 
 import java.util.ArrayList;
 
@@ -19,6 +23,9 @@ public class SettingsActivity extends AppCompatActivity {
     Spinner scaleSpinner;
     Spinner devicesSpinner;
     Spinner languageSpinner;
+
+    RadioButton rb_cel;
+    RadioButton rb_fahr;
 
     @SuppressLint("UseSwitchCompatOrMaterialCode")
     Switch turboSwitch;
@@ -47,5 +54,20 @@ public class SettingsActivity extends AppCompatActivity {
         vibrationSwitch = findViewById(R.id.vibrationSwitch);
         boolean vibrationState = turboSwitch.isChecked();
 
+        rb_cel = findViewById(R.id.temperatureScaleCelsius);
+        rb_cel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DAO.setCelcius(true);
+            }
+        });
+
+        rb_fahr = findViewById(R.id.temperatureScaleFahrenheit);
+        rb_fahr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DAO.setCelcius(false);
+            }
+        });
     }
 }

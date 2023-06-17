@@ -215,7 +215,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/celsius"
-                    android:textSize="18sp"/>
+                    android:textSize="18sp"
+                    android:checked="true"/>
                 <RadioButton
                     android:id="@+id/temperatureScaleFahrenheit"
                     android:layout_width="0dp"

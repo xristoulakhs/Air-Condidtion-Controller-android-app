@@ -11,6 +11,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.air_condition.dao.AC;
+import com.example.air_condition.dao.DAO;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -28,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     TextView statusText;
     TextView temperatureText;
     TextView currentText;
+    TextView scaleText;
 
     TextView fanOptions;
     TextView directionOptions;
@@ -67,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         powerBtn = findViewById(R.id.onOffBtn);
 
         statusText = findViewById(R.id.statusText);
+        scaleText = findViewById(R.id.scale);
         temperatureText = findViewById(R.id.temperature);
 
         fanOptions = findViewById(R.id.fanOptions);
@@ -80,37 +85,23 @@ public class MainActivity extends AppCompatActivity {
         minusImg =  findViewById(R.id.minusImg);
         modeImg = findViewById(R.id.modeImage);
 
-
         previousImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //edw kai sto nextImg (koumpia pou allazoun tis suskeues) pairnoume plirofories
-                //apo ton pinaka devices pou einai sto strings.xml ton opoio metatrepsame se arraylist
-                //brikame to index tis suskeuis pou psaxnoume kai tin pirame me tin methodo get
-                Context context = getApplicationContext();
-                ArrayList<String> devicesArray = new ArrayList<>(Arrays.asList(context.getResources().getStringArray(R.array.devices)));
-                int previousDeviceIndex = devicesArray.indexOf(currentText.getText().toString()) - 1;
-                if(previousDeviceIndex < 0){
-                    currentText.setText(devicesArray.get(devicesArray.size() - 1));
-                }
-                else {
-                    currentText.setText(devicesArray.get(previousDeviceIndex));
-                }
+                AC ac = DAO.getNextAC();
+                currentText.setText(ac.getAc());
+                setData(ac);
             }
         });
 
         nextImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Context context = getApplicationContext();
-                ArrayList<String> devicesArray = new ArrayList<>(Arrays.asList(context.getResources().getStringArray(R.array.devices)));
-                int nextDeviceIndex = devicesArray.indexOf(currentText.getText().toString()) + 1;
-                if(nextDeviceIndex >= devicesArray.size()){
-                    currentText.setText(devicesArray.get(0));
-                }
-                else {
-                    currentText.setText(devicesArray.get(nextDeviceIndex));
-                }
+
+                AC ac = DAO.getPrevious();
+                currentText.setText(ac.getAc());
+                setData(ac);
+
             }
         });
         settingsImg.setOnClickListener(new View.OnClickListener() {
@@ -135,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
                 int newTemperature = Integer.parseInt(temperatureText.getText().toString()) + 1;
                 if(newTemperature<=30){
                     temperatureText.setText(Integer.toString(newTemperature));
+                    DAO.getCurrent().setTemperature(newTemperature);
                 }
             }
         });
@@ -145,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
                 int newTemperature = Integer.parseInt(temperatureText.getText().toString()) - 1;
                 if(newTemperature>=15){
                     temperatureText.setText(Integer.toString(newTemperature));
+                    DAO.getCurrent().setTemperature(newTemperature);
                 }
             }
         });
@@ -152,28 +145,33 @@ public class MainActivity extends AppCompatActivity {
         powerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               if(status==0){
-                   statusImg.setImageDrawable(getResources().getDrawable(R.drawable.ic_green_dot));
-                   statusText.setText("On");
-                   status=1;
-               }
-               else{
+                if(DAO.getCurrent().isStatus()){
                    statusImg.setImageDrawable(getResources().getDrawable(R.drawable.ic_red_dot));
                    statusText.setText("Off");
-                    status=0;
-               }
+                   DAO.getCurrent().setStatus();
+                   System.out.println(DAO.getCurrent());
+                }
+                else {
+                   statusImg.setImageDrawable(getResources().getDrawable(R.drawable.ic_green_dot));
+                   statusText.setText("On");
+                   DAO.getCurrent().setStatus();
+                   System.out.println(DAO.getCurrent());
+                }
             }
         });
         fanBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(fanOptions.getText().equals("Low")){
+                if(DAO.getCurrent().getFanOption().equals("Low")){
                     fanOptions.setText("Medium");
-                } else if (fanOptions.getText().equals("Medium")) {
+                    DAO.getCurrent().setFanOption("Medium");
+                } else if (DAO.getCurrent().getFanOption().equals("Medium")) {
                     fanOptions.setText("High");
+                    DAO.getCurrent().setFanOption("High");
                 }
                 else {
                     fanOptions.setText("Low");
+                    DAO.getCurrent().setFanOption("Low");
                 }
             }
         });
@@ -181,13 +179,19 @@ public class MainActivity extends AppCompatActivity {
         directionBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(directionOptions.getText().equals("Down")){
+                if(DAO.getCurrent().getDirectionOptions().equals("Down")){
+                    Log.d("comment", "onClick: down");
                     directionOptions.setText("Middle");
-                } else if (directionOptions.getText().equals("Middle")) {
+                    DAO.getCurrent().setDirectionOptions("Middle");
+                } else if (DAO.getCurrent().getDirectionOptions().equals("Middle")) {
+                    Log.d("comment", "onClick: middle");
                     directionOptions.setText("Up");
+                    DAO.getCurrent().setDirectionOptions("Up");
                 }
                 else {
+                    Log.d("comment", "onClick: up");
                     directionOptions.setText("Down");
+                    DAO.getCurrent().setDirectionOptions("Down");
                 }
             }
         });
@@ -195,13 +199,15 @@ public class MainActivity extends AppCompatActivity {
         modeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(modeOptions.getText().equals("Cold")){
+                if(DAO.getCurrent().isModeOptions().equals("Cold")){
                     modeOptions.setText("Warm");
                     modeImg.setImageDrawable(getResources().getDrawable(R.drawable.ic_warm));
+                    DAO.getCurrent().setModeOptions("Warn");
                 }
                 else{
                     modeOptions.setText("Cold");
                     modeImg.setImageDrawable(getResources().getDrawable(R.drawable.ic_cold));
+                    DAO.getCurrent().setModeOptions("Cold");
                 }
             }
         });
@@ -209,13 +215,13 @@ public class MainActivity extends AppCompatActivity {
         ecoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(eco==0){
+                if(!DAO.getCurrent().isEco()){
                     ecoBtn.setBackground(getResources().getDrawable(R.drawable.button_on));
-                    eco = 1;
+                    DAO.getCurrent().setEco();
                 }
                 else {
                     ecoBtn.setBackground(getResources().getDrawable(R.drawable.button));
-                    eco = 0;
+                    DAO.getCurrent().setEco();
                 }
             }
         });
@@ -223,13 +229,13 @@ public class MainActivity extends AppCompatActivity {
         autoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(auto==0){
+                if(!(DAO.getCurrent().isAuto())){
                     autoBtn.setBackground(getResources().getDrawable(R.drawable.button_on));
-                    auto = 1;
+                    DAO.getCurrent().setAuto();
                 }
                 else {
                     autoBtn.setBackground(getResources().getDrawable(R.drawable.button));
-                    auto = 0;
+                    DAO.getCurrent().setAuto();
                 }
             }
         });
@@ -237,15 +243,82 @@ public class MainActivity extends AppCompatActivity {
         sleepBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(sleep==0){
+                if(!DAO.getCurrent().isSleep()){
                     sleepBtn.setBackground(getResources().getDrawable(R.drawable.button_on));
-                    sleep = 1;
+                    DAO.getCurrent().setSleep();
                 }
                 else {
                     sleepBtn.setBackground(getResources().getDrawable(R.drawable.button));
-                    sleep = 0;
+                    DAO.getCurrent().setSleep();
                 }
             }
         });
+    }
+
+    private void setData(AC ac){
+        System.out.println(ac);
+        if(ac.isStatus()){
+            statusImg.setImageDrawable(getResources().getDrawable(R.drawable.ic_green_dot));
+            statusText.setText("On");
+        }
+        else {
+            statusImg.setImageDrawable(getResources().getDrawable(R.drawable.ic_red_dot));
+            statusText.setText("Off");
+        }
+
+        if(ac.getFanOption().equals("Low")) fanOptions.setText("Low");
+        else if (ac.getFanOption().equals("Medium")) fanOptions.setText("Medium");
+        else fanOptions.setText("High");
+
+        if(ac.isSleep()) sleepBtn.setBackground(getResources().getDrawable(R.drawable.button_on));
+        else sleepBtn.setBackground(getResources().getDrawable(R.drawable.button));
+
+        if(ac.isAuto()) autoBtn.setBackground(getResources().getDrawable(R.drawable.button_on));
+        else autoBtn.setBackground(getResources().getDrawable(R.drawable.button));
+
+        if(ac.isEco()) ecoBtn.setBackground(getResources().getDrawable(R.drawable.button_on));
+        else ecoBtn.setBackground(getResources().getDrawable(R.drawable.button));
+
+
+        if(ac.isEco()) ecoBtn.setBackground(getResources().getDrawable(R.drawable.button_on));
+        else ecoBtn.setBackground(getResources().getDrawable(R.drawable.button));
+
+        if(DAO.getCurrent().isModeOptions().equals("Cold")){
+            modeOptions.setText("Cold");
+            modeImg.setImageDrawable(getResources().getDrawable(R.drawable.ic_cold));
+        }
+        else{
+            modeOptions.setText("Warn");
+            modeImg.setImageDrawable(getResources().getDrawable(R.drawable.ic_warm));
+        }
+
+        if(DAO.getCurrent().equals("Up")){
+            directionOptions.setText("Middle");
+        } else if (DAO.getCurrent().equals("Middle")) {
+            directionOptions.setText("Middle");
+        }
+        else {
+            directionOptions.setText("Down");
+        }
+
+//        temperatureText.setText(Integer.toString(ac.getTemperature()));
+
+        if(DAO.getCurrent().getDirectionOptions().equals("Middle")){
+            directionOptions.setText("Middle");
+        } else if (DAO.getCurrent().getDirectionOptions().equals("Up")) {
+            directionOptions.setText("Up");
+        }
+        else {
+            directionOptions.setText("Down");
+        }
+
+        if(DAO.isCelcius()){
+            temperatureText.setText(Integer.toString(ac.getTemperature()));
+            scaleText.setText("°C");
+        }
+        else{
+            temperatureText.setText(Integer.toString(ac.getFahrenheit()));
+            scaleText.setText("°F");
+        }
     }
 }

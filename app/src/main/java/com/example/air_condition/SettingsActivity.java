@@ -1,6 +1,7 @@
 package com.example.air_condition;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
@@ -69,5 +70,18 @@ public class SettingsActivity extends AppCompatActivity {
                 DAO.setCelcius(false);
             }
         });
+
+        if(DAO.isCelcius()){
+            rb_cel.setChecked(true);
+        }
+        else {
+            rb_fahr.setChecked(true);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        setResult(RESULT_OK);
+        finish();
     }
 }

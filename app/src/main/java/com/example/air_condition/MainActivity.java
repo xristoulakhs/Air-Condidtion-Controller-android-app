@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
-
+    private static final int SETTINGS_REQUEST_CODE = 1;
     LinearLayout fanBtn;
     LinearLayout directionBtn;
     LinearLayout modeBtn;
@@ -107,10 +107,12 @@ public class MainActivity extends AppCompatActivity {
         settingsImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent settingsIntent =  new Intent(MainActivity.this, SettingsActivity.class);
-                startActivity(settingsIntent);
+                Intent settingsIntent = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivityForResult(settingsIntent, SETTINGS_REQUEST_CODE);
             }
         });
+
+
 
         helpImg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -253,6 +255,17 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == SETTINGS_REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                // Call setData(DAO.getCurrent()) in MainActivity
+                setData(DAO.getCurrent());
+            }
+        }
     }
 
     private void setData(AC ac){

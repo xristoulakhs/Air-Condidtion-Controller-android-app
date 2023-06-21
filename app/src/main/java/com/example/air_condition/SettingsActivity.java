@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.RadioButton;
@@ -32,8 +33,7 @@ public class SettingsActivity extends AppCompatActivity {
     Switch turboSwitch;
     @SuppressLint("UseSwitchCompatOrMaterialCode")
     Switch vibrationSwitch;
-    @SuppressLint("UseSwitchCompatOrMaterialCode")
-    Switch timerSwitch;
+    Switch speechSwitch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,10 +50,28 @@ public class SettingsActivity extends AppCompatActivity {
         devicesSpinner.setAdapter(devicesArrayAdapter);
 
         turboSwitch = findViewById(R.id.turboSwitch);
-        boolean turboState = turboSwitch.isChecked();
+        turboSwitch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DAO.setTurboState(!DAO.isTurboState());
+            }
+        });
 
         vibrationSwitch = findViewById(R.id.vibrationSwitch);
-        boolean vibrationState = turboSwitch.isChecked();
+        vibrationSwitch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DAO.setVibrationState(!DAO.isVibrationState());
+            }
+        });
+
+        speechSwitch = findViewById(R.id.voiceSwitch);
+        speechSwitch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DAO.setSpeechState(!DAO.isSpeechState());
+            }
+        });
 
         rb_cel = findViewById(R.id.temperatureScaleCelsius);
         rb_cel.setOnClickListener(new View.OnClickListener() {
@@ -77,6 +95,10 @@ public class SettingsActivity extends AppCompatActivity {
         else {
             rb_fahr.setChecked(true);
         }
+
+        turboSwitch.setChecked(DAO.isTurboState());
+        vibrationSwitch.setChecked(DAO.isVibrationState());
+        speechSwitch.setChecked(DAO.isSpeechState());
     }
 
     @Override

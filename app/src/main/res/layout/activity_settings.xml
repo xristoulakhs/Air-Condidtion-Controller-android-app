@@ -118,7 +118,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:text="Speech"
+                android:text="@string/speech_on_touch"
                 android:textColor="@color/black"
                 android:textSize="22sp" />
 
@@ -128,7 +128,7 @@
                 android:layout_height="22dp"
                 android:layout_weight="1"
                 android:layout_gravity="center"
-                android:layout_marginStart="185dp"
+                android:layout_marginStart="78dp"
                 tools:ignore="UseSwitchCompatOrMaterialXml" />
 
         </LinearLayout>
@@ -170,7 +170,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="20"
+                    android:text="@string/timer_number"
                     android:textSize="25sp"
                     android:textColor="@color/black"
                     android:layout_marginEnd="12dp"

@@ -37,7 +37,7 @@
     <string name="vibration_on_touch">Vibration on touch</string>
     <string name="turbo">Turbo</string>
     <string name="timer">Timer</string>
-    <string name="version">Current Version 0.5.0</string>
+    <string name="version">Current Version 1.0.0</string>
     <string name="temperatureScale">Temperature Scale</string>
 
     <string name="help_text">Help</string>
@@ -62,6 +62,8 @@
     <string name="celsius">Celsius(°C)</string>
     <string name="fahrenheit">Fahrenheit(°F)</string>
     <string name="temperature_scale">Temperature Scale</string>
+    <string name="speech_on_touch">Speech on touch</string>
+    <string name="timer_number">20 mins</string>
 
     //lista me tis suskeues
     <string-array name="devices">

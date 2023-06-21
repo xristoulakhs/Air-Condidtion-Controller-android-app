@@ -9,6 +9,11 @@ public class DAO {
     static int counter = 0;
     static boolean celcius = true; // an einai celcius
 
+    static boolean turboState = false;
+    static boolean vibrationState = false;
+    static boolean speechState = false;
+
+    static int timer = 20;
 
     static {
         acList.add(new AC("Living room", 25, false, "Low", "Down", "Cold", false, false, false));
@@ -39,4 +44,30 @@ public class DAO {
     public static void setCelcius(boolean celcius) {
         DAO.celcius = celcius;
     }
+
+    public static boolean isTurboState() {
+        return turboState;
+    }
+
+    public static void setTurboState(boolean turboStateF) {
+        turboState = turboStateF;
+    }
+
+    public static boolean isVibrationState() {
+        return vibrationState;
+    }
+
+    public static void setVibrationState(boolean vibrationStateF) {
+        vibrationState = vibrationStateF;
+    }
+
+    public static boolean isSpeechState() {
+        return speechState;
+    }
+
+    public static void setSpeechState(boolean speechStateF) {
+        speechState = speechStateF;
+    }
+
+
 }

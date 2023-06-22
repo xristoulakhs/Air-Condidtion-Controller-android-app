@@ -13,7 +13,7 @@ public class DAO {
     static boolean vibrationState = false;
     static boolean speechState = false;
 
-    static int timer = 20;
+    static String timerText = "20 mins";
 
     static {
         acList.add(new AC("Living room", 25, false, "Low", "Down", "Cold", false, false, false));
@@ -70,4 +70,11 @@ public class DAO {
     }
 
 
+    public static String getTimerText() {
+        return timerText;
+    }
+
+    public static void setTimerText(String timerText) {
+        DAO.timerText = timerText;
+    }
 }

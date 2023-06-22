@@ -1,12 +1,10 @@
 package com.example.air_condition;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.graphics.Paint;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Switch;
@@ -20,7 +18,10 @@ import java.util.ArrayList;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    TextView settingsTxt;
+    TextView timerTxt;
+
+    ImageView timerPlus;
+    ImageView timerMinus;
 
     Spinner scaleSpinner;
     Spinner devicesSpinner;
@@ -39,6 +40,32 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+        timerTxt = findViewById(R.id.timerText);
+
+        timerMinus = findViewById(R.id.timerMinus);
+        timerMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int txtNum = Integer.parseInt(DAO.getTimerText().split(" ",2)[0]);
+                if(txtNum>0){
+                    timerTxt.setText(txtNum - 5 + " mins");
+                    DAO.setTimerText(txtNum - 5 +" mins");
+                }
+            }
+        });
+
+        timerPlus =findViewById(R.id.timerPlus);
+        timerPlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int txtNum = Integer.parseInt(DAO.getTimerText().split(" ",2)[0]);
+                if(txtNum<100){
+                    timerTxt.setText(txtNum + 5 + " mins");
+                    DAO.setTimerText(txtNum + 5 +" mins");
+                }
+            }
+        });
 
         devicesSpinner = findViewById(R.id.myDevicesSpinner);
         ArrayList<String> devices = new ArrayList<>();
@@ -99,6 +126,7 @@ public class SettingsActivity extends AppCompatActivity {
         turboSwitch.setChecked(DAO.isTurboState());
         vibrationSwitch.setChecked(DAO.isVibrationState());
         speechSwitch.setChecked(DAO.isSpeechState());
+        timerTxt.setText(DAO.getTimerText());
     }
 
     @Override

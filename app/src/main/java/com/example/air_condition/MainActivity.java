@@ -1,9 +1,7 @@
 package com.example.air_condition;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -13,9 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.air_condition.dao.AC;
 import com.example.air_condition.dao.DAO;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
     private static final int SETTINGS_REQUEST_CODE = 1;
@@ -47,11 +42,6 @@ public class MainActivity extends AppCompatActivity {
     ImageView minusImg;
     ImageView modeImg;
 
-    int status = 0; //metabliti pou tha elegxei ean i suskeui einai anoixti, arxika 0
-    //metablites gia leitourgies, elegxoun ean einai energopoiimenes, arxika 0
-    int eco = 0;
-    int auto = 0;
-    int sleep =0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -182,16 +172,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(DAO.getCurrent().getDirectionOptions().equals("Down")){
-                    Log.d("comment", "onClick: down");
                     directionOptions.setText("Middle");
                     DAO.getCurrent().setDirectionOptions("Middle");
                 } else if (DAO.getCurrent().getDirectionOptions().equals("Middle")) {
-                    Log.d("comment", "onClick: middle");
                     directionOptions.setText("Up");
                     DAO.getCurrent().setDirectionOptions("Up");
                 }
                 else {
-                    Log.d("comment", "onClick: up");
                     directionOptions.setText("Down");
                     DAO.getCurrent().setDirectionOptions("Down");
                 }

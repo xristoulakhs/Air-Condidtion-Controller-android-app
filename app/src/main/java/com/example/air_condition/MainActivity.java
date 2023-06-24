@@ -1,7 +1,9 @@
 package com.example.air_condition;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -42,10 +44,14 @@ public class MainActivity extends AppCompatActivity {
     ImageView minusImg;
     ImageView modeImg;
 
+    Vibrator vibrator;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
         previousImg = findViewById(R.id.previousDevice);
         currentText =findViewById(R.id.currentDevice);
@@ -78,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
         previousImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(DAO.isVibrationState()) vibrator.vibrate(100);
                 AC ac = DAO.getNextAC();
                 currentText.setText(ac.getAc());
                 setData(ac);
@@ -87,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
         nextImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                if(DAO.isVibrationState()) vibrator.vibrate(100);
                 AC ac = DAO.getPrevious();
                 currentText.setText(ac.getAc());
                 setData(ac);
@@ -97,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
         settingsImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(DAO.isVibrationState()) vibrator.vibrate(100);
                 Intent settingsIntent = new Intent(MainActivity.this, SettingsActivity.class);
                 startActivityForResult(settingsIntent, SETTINGS_REQUEST_CODE);
             }
@@ -107,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
         helpImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(DAO.isVibrationState()) vibrator.vibrate(100);
                 Intent helpIntent = new Intent(MainActivity.this, HelpActivity.class);
                 startActivity(helpIntent);
             }
@@ -115,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
         plusImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(DAO.isVibrationState()) vibrator.vibrate(100);
                 int newTemperature = Integer.parseInt(temperatureText.getText().toString()) + 1;
                 if(newTemperature<=30){
                     temperatureText.setText(Integer.toString(newTemperature));
@@ -126,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
         minusImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(DAO.isVibrationState()) vibrator.vibrate(100);
                 int newTemperature = Integer.parseInt(temperatureText.getText().toString()) - 1;
                 if(newTemperature>=15){
                     temperatureText.setText(Integer.toString(newTemperature));
@@ -137,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
         powerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(DAO.isVibrationState()) vibrator.vibrate(100);
                 if(DAO.getCurrent().isStatus()){
                    statusImg.setImageDrawable(getResources().getDrawable(R.drawable.ic_red_dot));
                    statusText.setText("Off");
@@ -154,6 +166,7 @@ public class MainActivity extends AppCompatActivity {
         fanBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(DAO.isVibrationState()) vibrator.vibrate(100);
                 if(DAO.getCurrent().getFanOption().equals("Low")){
                     fanOptions.setText("Medium");
                     DAO.getCurrent().setFanOption("Medium");
@@ -171,6 +184,7 @@ public class MainActivity extends AppCompatActivity {
         directionBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(DAO.isVibrationState()) vibrator.vibrate(100);
                 if(DAO.getCurrent().getDirectionOptions().equals("Down")){
                     directionOptions.setText("Middle");
                     DAO.getCurrent().setDirectionOptions("Middle");
@@ -188,6 +202,7 @@ public class MainActivity extends AppCompatActivity {
         modeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(DAO.isVibrationState()) vibrator.vibrate(100);
                 if(DAO.getCurrent().isModeOptions().equals("Cold")){
                     modeOptions.setText("Warm");
                     modeImg.setImageDrawable(getResources().getDrawable(R.drawable.ic_warm));
@@ -204,6 +219,7 @@ public class MainActivity extends AppCompatActivity {
         ecoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(DAO.isVibrationState()) vibrator.vibrate(100);
                 if(!DAO.getCurrent().isEco()){
                     ecoBtn.setBackground(getResources().getDrawable(R.drawable.button_on));
                     DAO.getCurrent().setEco();
@@ -218,6 +234,7 @@ public class MainActivity extends AppCompatActivity {
         autoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(DAO.isVibrationState()) vibrator.vibrate(100);
                 if(!(DAO.getCurrent().isAuto())){
                     autoBtn.setBackground(getResources().getDrawable(R.drawable.button_on));
                     DAO.getCurrent().setAuto();
@@ -232,6 +249,7 @@ public class MainActivity extends AppCompatActivity {
         sleepBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(DAO.isVibrationState()) vibrator.vibrate(100);
                 if(!DAO.getCurrent().isSleep()){
                     sleepBtn.setBackground(getResources().getDrawable(R.drawable.button_on));
                     DAO.getCurrent().setSleep();

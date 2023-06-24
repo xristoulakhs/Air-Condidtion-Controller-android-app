@@ -1,7 +1,9 @@
 package com.example.air_condition;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
@@ -36,10 +38,14 @@ public class SettingsActivity extends AppCompatActivity {
     Switch vibrationSwitch;
     Switch speechSwitch;
 
+    Vibrator vibrator;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+        vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
         timerTxt = findViewById(R.id.timerText);
 
@@ -47,6 +53,7 @@ public class SettingsActivity extends AppCompatActivity {
         timerMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(DAO.isVibrationState()) vibrator.vibrate(100);
                 int txtNum = Integer.parseInt(DAO.getTimerText().split(" ",2)[0]);
                 if(txtNum>0){
                     timerTxt.setText(txtNum - 5 + " mins");
@@ -59,6 +66,7 @@ public class SettingsActivity extends AppCompatActivity {
         timerPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(DAO.isVibrationState()) vibrator.vibrate(100);
                 int txtNum = Integer.parseInt(DAO.getTimerText().split(" ",2)[0]);
                 if(txtNum<100){
                     timerTxt.setText(txtNum + 5 + " mins");
@@ -80,6 +88,7 @@ public class SettingsActivity extends AppCompatActivity {
         turboSwitch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(DAO.isVibrationState()) vibrator.vibrate(100);
                 DAO.setTurboState(!DAO.isTurboState());
             }
         });
@@ -88,6 +97,7 @@ public class SettingsActivity extends AppCompatActivity {
         vibrationSwitch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(DAO.isVibrationState()) vibrator.vibrate(100);
                 DAO.setVibrationState(!DAO.isVibrationState());
             }
         });
@@ -96,6 +106,7 @@ public class SettingsActivity extends AppCompatActivity {
         speechSwitch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(DAO.isVibrationState()) vibrator.vibrate(100);
                 DAO.setSpeechState(!DAO.isSpeechState());
             }
         });
@@ -104,6 +115,7 @@ public class SettingsActivity extends AppCompatActivity {
         rb_cel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(DAO.isVibrationState()) vibrator.vibrate(100);
                 DAO.setCelcius(true);
             }
         });
@@ -112,6 +124,7 @@ public class SettingsActivity extends AppCompatActivity {
         rb_fahr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(DAO.isVibrationState()) vibrator.vibrate(100);
                 DAO.setCelcius(false);
             }
         });

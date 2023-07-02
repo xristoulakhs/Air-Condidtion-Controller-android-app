@@ -1,9 +1,13 @@
 package com.example.air_condition;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -13,6 +17,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.air_condition.dao.AC;
 import com.example.air_condition.dao.DAO;
+
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     private static final int SETTINGS_REQUEST_CODE = 1;
@@ -265,10 +271,21 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        Log.d("f", DAO.getLanguage());
+        Log.d("f", String.valueOf(resultCode));
         if (requestCode == SETTINGS_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
                 // Call setData(DAO.getCurrent()) in MainActivity
                 setData(DAO.getCurrent());
+                if(DAO.getLanguage().equals("el")){
+                    setLocale("el",MainActivity.this);
+                    finish();
+                    startActivity(getIntent());
+                } else if (DAO.getLanguage().equals("en")) {
+                    setLocale("en",MainActivity.this);
+                    finish();
+                    startActivity(getIntent());
+                }
             }
         }
     }
@@ -338,5 +355,13 @@ public class MainActivity extends AppCompatActivity {
             temperatureText.setText(Integer.toString(ac.getFahrenheit()));
             scaleText.setText("°F");
         }
+    }
+
+    public void setLocale(String lang, Activity activity) {
+        Locale myLocale = new Locale(lang);
+        Resources resources = activity.getResources();
+        Configuration configuration = resources.getConfiguration();
+        configuration.setLocale(myLocale);
+        resources.updateConfiguration(configuration,resources.getDisplayMetrics());
     }
 }

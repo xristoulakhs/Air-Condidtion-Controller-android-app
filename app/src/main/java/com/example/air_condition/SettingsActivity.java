@@ -1,10 +1,15 @@
 package com.example.air_condition;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -17,6 +22,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.air_condition.dao.DAO;
 
 import java.util.ArrayList;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -40,11 +47,15 @@ public class SettingsActivity extends AppCompatActivity {
 
     Vibrator vibrator;
 
+    String[] languages;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        if (DAO.getLanguage().equals("el")) languages = new String[]{"Επιλέξτε Γλώσσα", "English", "Ελληνικά"};
+        if (DAO.getLanguage().equals("en")) languages = new String[]{"Select Language", "English", "Ελληνικά"};
         vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
         timerTxt = findViewById(R.id.timerText);
@@ -56,8 +67,8 @@ public class SettingsActivity extends AppCompatActivity {
                 if(DAO.isVibrationState()) vibrator.vibrate(100);
                 int txtNum = Integer.parseInt(DAO.getTimerText().split(" ",2)[0]);
                 if(txtNum>0){
-                    timerTxt.setText(txtNum - 5 + " mins");
-                    DAO.setTimerText(txtNum - 5 +" mins");
+                    timerTxt.setText(txtNum - 5 + " ''");
+                    DAO.setTimerText(txtNum - 5 +" ''");
                 }
             }
         });
@@ -69,8 +80,8 @@ public class SettingsActivity extends AppCompatActivity {
                 if(DAO.isVibrationState()) vibrator.vibrate(100);
                 int txtNum = Integer.parseInt(DAO.getTimerText().split(" ",2)[0]);
                 if(txtNum<100){
-                    timerTxt.setText(txtNum + 5 + " mins");
-                    DAO.setTimerText(txtNum + 5 +" mins");
+                    timerTxt.setText(txtNum + 5 +" ''");
+                    DAO.setTimerText(txtNum + 5 +" ''");
                 }
             }
         });
@@ -129,6 +140,35 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
+        ArrayAdapter adapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1,languages);
+
+        languageSpinner = findViewById(R.id.languageSpinner);
+        languageSpinner.setAdapter(adapter);
+        languageSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String selectedLanguage = adapterView.getItemAtPosition(i).toString();
+                if(selectedLanguage.equals("English")){
+                    setLocale("en",SettingsActivity.this);
+                    DAO.setLanguage("en");
+                    setResult(RESULT_OK);
+                    finish();
+                    startActivity(getIntent());
+                } else if (selectedLanguage.equals("Ελληνικά")) {
+                    setLocale("el",SettingsActivity.this);
+                    DAO.setLanguage("el");
+                    setResult(RESULT_OK);
+                    finish();
+                    startActivity(getIntent());
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
         if(DAO.isCelcius()){
             rb_cel.setChecked(true);
         }
@@ -146,5 +186,13 @@ public class SettingsActivity extends AppCompatActivity {
     public void onBackPressed() {
         setResult(RESULT_OK);
         finish();
+    }
+
+    public void setLocale(String lang, Activity activity) {
+        Locale myLocale = new Locale(lang);
+        Resources resources = activity.getResources();
+        Configuration configuration = resources.getConfiguration();
+        configuration.setLocale(myLocale);
+        resources.updateConfiguration(configuration,resources.getDisplayMetrics());
     }
 }

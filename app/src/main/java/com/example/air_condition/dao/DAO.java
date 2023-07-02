@@ -13,7 +13,8 @@ public class DAO {
     static boolean vibrationState = false;
     static boolean speechState = false;
 
-    static String timerText = "20 mins";
+    static String timerText = "20 ''";
+    static  String language = "en";
 
     static {
         acList.add(new AC("Living room", 25, false, "Low", "Down", "Cold", false, false, false));
@@ -76,5 +77,13 @@ public class DAO {
 
     public static void setTimerText(String timerText) {
         DAO.timerText = timerText;
+    }
+
+    public static String getLanguage() {
+        return language;
+    }
+
+    public static void setLanguage(String language) {
+        DAO.language = language;
     }
 }

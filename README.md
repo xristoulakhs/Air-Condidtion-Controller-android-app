@@ -1,5 +1,3 @@
 # allilepidrasi
 
-arxiko readme
-
-adsjkhljsadhlk
+Air Condidtion android app developed with java and android studio.
